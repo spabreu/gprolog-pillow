@@ -1,9 +1,12 @@
 % #!/bin/sh
 % exec /usr/local/bin/ciao_shell $0 $*
 
-:- use_package(pillow).
+%:- use_package(pillow).
 
-:- use_module(library(aggregates)).
+%:- use_module(library(aggregates)).
+
+:- op(150, xfx, '$').
+:- op(150, fx, '$').
 
 main :-
   get_form_input(Info),
@@ -28,11 +31,11 @@ main :-
     start_form,
     'Please select mood:',
     radio(mood,happy,Mood),nl,
-    image('http://www.clip.dia.fi.upm.es/images/smile.happy.gif',
+    image('/images/smile.happy.gif',
       [align=middle]),
     nl,
     radio(mood,sad,Mood),nl,
-    image('http://www.clip.dia.fi.upm.es/images/smile.sad.gif',
+    image('/images/smile.sad.gif',
       [align=middle]),
     $,
     'What ',strong(do),' you want?',\\,
