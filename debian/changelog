@@ -1,3 +1,15 @@
+gprolog-pillow (1.0-8) unstable; urgency=low
+
+  * rebuild with gprolog-cx 1.2.18
+
+ -- Salvador Abreu <spa@di.uevora.pt>  Sat,  2 Aug 2003 16:53:36 +0100
+
+gprolog-pillow (1.0-7) unstable; urgency=low
+
+  * rebuild with gprolog-cx 1.2.13-5
+
+ -- Salvador Abreu <spa@debian.org>  Thu, 10 Apr 2003 10:20:43 +0100
+
 gprolog-pillow (1.0-6) unstable; urgency=low
 
   * rebuild with new gprolog-cx
