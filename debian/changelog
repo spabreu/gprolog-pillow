@@ -1,3 +1,23 @@
+gprolog-pillow (1.0-6) unstable; urgency=low
+
+  * rebuild with new gprolog-cx
+
+ -- Salvador Abreu <spa@debian.org>  Mon,  7 Apr 2003 01:15:46 +0100
+
+gprolog-pillow (1.0-5) unstable; urgency=low
+
+  * Allow arbitrary terms in the value part of attributes, done with the
+    equivalent of a writeq/1 (atomic_or_string/3).
+  * Strings are now recognized (heuristically).
+
+ -- Salvador Abreu <spa@debian.org>  Wed, 26 Feb 2003 01:09:28 +0000
+
+gprolog-pillow (1.0-4) unstable; urgency=low
+
+  * Handle FOO(XPTO)$FOO_ATTS
+
+ -- Salvador Abreu <spa@debian.org>  Sat, 22 Feb 2003 23:16:02 +0000
+
 gprolog-pillow (1.0-3) unstable; urgency=low
 
   * recompile with newer gprolog-cx.
