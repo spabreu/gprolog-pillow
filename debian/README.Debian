@@ -1,0 +1,10 @@
+== GNU Prolog for Debian ======================================================
+-- PiLLoW library -------------------------------------------------------------
+
+gprolog-pillow is a port of the PiLLoW package from UPM (see
+http://www.clip.dia.fi.upm.es/), adapted to work with GNU Prolog.
+
+Shortly stated, PiLLoW allows for the creation of Prolog-based CGIs and, in
+general, provides tool to manipulate SGML documents from within Prolog.
+
+../salvador Abreu <spa@debian.org>

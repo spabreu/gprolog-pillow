@@ -1,0 +1,5 @@
+gprolog-pillow (1.0-1) unstable; urgency=low
+
+  * initial packaging.
+
+ -- Salvador Abreu <spa@debian.org>  Wed,  6 Mar 2002 00:17:39 +0000
