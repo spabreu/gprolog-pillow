@@ -97,8 +97,9 @@ html_expansion(all(PATTERN, GOAL), OUTPUT) :- !,
 % 	findall(QUANT, GOAL, PATTERN),
 % 	( html_expansion(PATTERN, OUTPUT) -> true ; OUTPUT=PATTERN ).
 
-html_expansion(GOAL-OUTPUT, OUTPUT) :-
-	GOAL.
+html_expansion(GOAL-PATx, OUTPUT) :-
+	GOAL,
+	( html_expansion(PATx, OUTPUT) -> true ; OUTPUT=PATx ).
 
 % -----------------------------------------------------------------------------
 
@@ -362,6 +363,10 @@ html_term(T$Atts, I) --> {atom(T), atom_codes(T,TS)}, !,
         "<",string(TS),
         html_atts(Atts, I),
         ">".
+html_term(X$Atts, I) --> {X=..[T,A], atom_codes(T,TS)}, !,
+        "<", string(TS), html_atts(Atts, I), ">",
+	html_term(A, I+1),
+	"</", string(TS), ">".
 % XML empty element
 html_term(elem(N,Atts), I) --> {atom(N), atom_codes(N,NS)}, !,
         "<",string(NS),
@@ -1292,8 +1297,14 @@ url_info_relative(File, http(Host,Port,BaseDoc), http(Host,Port,Document)) :-
 atomic_or_string(X) -->
         {atomic(X), name(X,S)}, !,
         string(S).
-atomic_or_string(S) -->
-        string(S).
+atomic_or_string(X) -->
+	{string(X)}, !,
+	string(X).
+atomic_or_string(X) -->
+	{format_to_codes(S, "~q", [X])},
+	string(S).
+%atomic_or_string(S) -->
+%        string(S).
 
 textarea_data('$empty', _) --> [].
 textarea_data(X, _) -->
@@ -1953,6 +1964,10 @@ string([]) --> "".
 string([C|Cs]) -->
         [C],
         string(Cs).
+
+string([]).
+string([C|Cs]) :- integer(C), C>=0, C=<255, !, string(Cs).
+
 
 % :- use_module(library(system)).
 
